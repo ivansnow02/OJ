@@ -14,15 +14,15 @@ int main()
 {
     int num;
     cin >> num;
-    vector<double> score(num);
-    for (int i = 0; i < num; i++)
-        cin >> score[i];
-    sort(score.begin(), score.end());
+    double max = 0, min = 10,score; 
     double sum = 0;
-    for (int i = 1; i < num - 1; i++)
-    {
-        sum += score[i];
+    for (int i = 0; i < num; i++){
+        cin >> score;
+        max = max > score ? max : score;
+        min = min < score ? min : score;
+        sum += score;
     }
+    sum -= max + min;
     cout << sum / (num - 2);
     return 0;
 }
