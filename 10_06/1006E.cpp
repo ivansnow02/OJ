@@ -1,10 +1,9 @@
 /**
  * @file 1006E.cpp
- * @author your name (you@domain.com)
- * @brief
+ * @author ivan
+ * @brief 设计一个程序，对于用户输入的任意正整数a（a≥1）和b（b≥2），求出满足b^n≤a的最大整数n。
  * @version 0.1
  * @date 2022-10-06
- * 设计一个程序，对于用户输入的任意正整数a（a≥1）和b（b≥2），求出满足b^n≤a的最大整数n。
  * @copyright Copyright (c) 2022
  *
  */

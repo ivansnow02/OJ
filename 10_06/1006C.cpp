@@ -1,10 +1,9 @@
 /**
  * @file 1006C.cpp
- * @author your name (you@domain.com)
- * @brief
+ * @author ivan
+ * @brief 求n以内被3除余1且个位数为6的所有整数（如16、46、...、286等）并显示在屏幕上。
  * @version 0.1
  * @date 2022-10-06
- * 求n以内被3除余1且个位数为6的所有整数（如16、46、...、286等）并显示在屏幕上。
  * @copyright Copyright (c) 2022
  *
  */
