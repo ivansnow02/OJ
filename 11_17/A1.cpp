@@ -11,30 +11,34 @@
   输出一行，是AllWeights的值
  */
 
-
 #include <bits/stdc++.h>
 using namespace std;
-class Lingjian{
+class Lingjian
+{
 private:
 	int Weight;
 	static int AllWeights;
+
 public:
-	Lingjian(int w){
+	Lingjian(int w)
+	{
 		Weight = w;
-		AllWeights +=w;
+		AllWeights += w;
 	}
-	~Lingjian(){
-		AllWeights-=Weight;
+	~Lingjian()
+	{
+		AllWeights -= Weight;
 	}
-	static int GetAllWeights(){
+	static int GetAllWeights()
+	{
 		return AllWeights;
 	}
 };
 int Lingjian::AllWeights = 0;
-int main(){
-	int w1,w2;
-	cin>>w1>>w2;
-	Lingjian l1(w1),l2(w2);
-	cout<<Lingjian::GetAllWeights();
-	
+int main()
+{
+	int w1, w2;
+	cin >> w1 >> w2;
+	Lingjian l1(w1), l2(w2);
+	cout << Lingjian::GetAllWeights();
 }

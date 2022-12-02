@@ -15,45 +15,56 @@
  */
 #include <iostream>
 using namespace std;
-class Point {
-	private:
-		float X, Y;
-	public:
-		Point(float x, float y) {
-			X = x;
-			Y = y;
-		}
-		void Move(float xOff, float yOff) {
-			X += xOff;
-			Y += yOff;
-		}
-		float GetX() {
-			return X;
-		}
-		float GetY() {
-			return Y;
-		}
-};
-class Rectangle : public Point {
-	private:
-		float W, H;
-	public:
-		Rectangle(int x, int y, int w, int h): Point(x, y) {
-			W = w;
-			H = h;
-		}
-		float GetW() {
-			return W;
-		}
-		float GetH() {
-			return H;
-		}
+class Point
+{
+private:
+	float X, Y;
 
+public:
+	Point(float x, float y)
+	{
+		X = x;
+		Y = y;
+	}
+	void Move(float xOff, float yOff)
+	{
+		X += xOff;
+		Y += yOff;
+	}
+	float GetX()
+	{
+		return X;
+	}
+	float GetY()
+	{
+		return Y;
+	}
 };
-int main() {
-	int x,y,w,h,xo,yo;
-	cin>>x>>y>>w>>h>>xo>>yo;
-	Rectangle rect(x,y,w,h);
-	rect.Move(xo,yo);
-	cout<<rect.GetX()<<' '<<rect.GetY()<<' '<<rect.GetW()<<' '<<rect.GetH();
+class Rectangle : public Point
+{
+private:
+	float W, H;
+
+public:
+	Rectangle(int x, int y, int w, int h) : Point(x, y)
+	{
+		W = w;
+		H = h;
+	}
+	float GetW()
+	{
+		return W;
+	}
+	float GetH()
+	{
+		return H;
+	}
+};
+int main()
+{
+	int x, y, w, h, xo, yo;
+	cin >> x >> y >> w >> h >> xo >> yo;
+	Rectangle rect(x, y, w, h);
+	rect.Move(xo, yo);
+	cout << rect.GetX() << ' ' << rect.GetY() << ' ' << rect.GetW() << ' ' << rect.GetH();
 }

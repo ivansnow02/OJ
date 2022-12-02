@@ -19,72 +19,89 @@
  */
 #include <iostream>
 using namespace std;
-class Fruit {
-	protected:
-		double W, P;
-	public:
-		Fruit(int w, int p): W(w), P(p) {}
-		virtual double price() = 0;
-		friend double operator+(double, Fruit&);
+class Fruit
+{
+protected:
+	double W, P;
+
+public:
+	Fruit(int w, int p) : W(w), P(p) {}
+	virtual double price() = 0;
+	friend double operator+(double, Fruit &);
 };
-double operator+(double s, Fruit& f) {
+double operator+(double s, Fruit &f)
+{
 	return s + f.price();
 }
-class Apple: public Fruit {
-	public:
-		Apple(int w, int p): Fruit(w, p) {}
-		double price() {
-			return W * P;
-		}
-
+class Apple : public Fruit
+{
+public:
+	Apple(int w, int p) : Fruit(w, p) {}
+	double price()
+	{
+		return W * P;
+	}
 };
-class Banana: public Fruit {
-	public:
-		Banana(int w, int p): Fruit(w, p) {}
-		double price() {
+class Banana : public Fruit
+{
+public:
+	Banana(int w, int p) : Fruit(w, p) {}
+	double price()
+	{
+		return W * P * 0.5;
+	}
+};
+class Orange : public Fruit
+{
+public:
+	Orange(int w, int p) : Fruit(w, p) {}
+	double price()
+	{
+		if (W > 10)
+		{
 			return W * P * 0.5;
 		}
-
-};
-class Orange: public Fruit {
-	public:
-		Orange(int w, int p): Fruit(w, p) {}
-		double price() {
-			if (W > 10) {
-				return  W * P * 0.5;
-			} else if (W > 5) {
-				return W * P * 0.8;
-			} else return W * P;
+		else if (W > 5)
+		{
+			return W * P * 0.8;
 		}
-
+		else
+			return W * P;
+	}
 };
-int main() {
+int main()
+{
 	Fruit *fp = NULL;
 	char c;
 	double sum = 0;
-	while ((cin >> c) && c != 'q') {
-		switch (c) {
-			case 'a': {
-				int w, p;
-				cin >> w >> p;
-				fp = new Apple(w, p);
-				sum += fp->price();
-				break;
-			}
-			case 'b': {
-				int w, p;
-				cin >> w >> p;
-				fp = new Banana(w, p);
-				sum += fp->price();
-				break;
-			}
-			case 'o': {
-				int w, p;
-				cin >> w >> p;
-				fp = new Orange(w, p);
-				sum += fp->price();
-				break;
-			}
+	while ((cin >> c) && c != 'q')
+	{
+		switch (c)
+		{
+		case 'a':
+		{
+			int w, p;
+			cin >> w >> p;
+			fp = new Apple(w, p);
+			sum += fp->price();
+			break;
+		}
+		case 'b':
+		{
+			int w, p;
+			cin >> w >> p;
+			fp = new Banana(w, p);
+			sum += fp->price();
+			break;
+		}
+		case 'o':
+		{
+			int w, p;
+			cin >> w >> p;
+			fp = new Orange(w, p);
+			sum += fp->price();
+			break;
+		}
 		}
 	}
 	cout << sum;

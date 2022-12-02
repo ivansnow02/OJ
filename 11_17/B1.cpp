@@ -13,31 +13,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Tiger;
-class Lion {
-	private:
-		int weight;
-	public:
-		Lion(int w){
-			weight=w;
-		}
-		friend int totalWeight(Tiger &t,Lion &l);
+class Lion
+{
+private:
+	int weight;
+
+public:
+	Lion(int w)
+	{
+		weight = w;
+	}
+	friend int totalWeight(Tiger &t, Lion &l);
 };
-class Tiger {
-	private:
-		int weight;
-	public:
-		Tiger(int w){
-			weight=w;
-		}
-		friend int totalWeight(Tiger &t,Lion &l);
+class Tiger
+{
+private:
+	int weight;
+
+public:
+	Tiger(int w)
+	{
+		weight = w;
+	}
+	friend int totalWeight(Tiger &t, Lion &l);
 };
-int totalWeight(Tiger &t,Lion &l) {
-	return t.weight+l.weight;
+int totalWeight(Tiger &t, Lion &l)
+{
+	return t.weight + l.weight;
 }
-int main() {
-	int tw,lw;
-	cin>>tw>>lw;
+int main()
+{
+	int tw, lw;
+	cin >> tw >> lw;
 	Tiger t(tw);
 	Lion l(lw);
-	cout<<totalWeight(t,l);
+	cout << totalWeight(t, l);
 }

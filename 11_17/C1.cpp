@@ -1,35 +1,46 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Cset {
-  private:
+class Cset
+{
+private:
 	int n;
-	int* data;
-  public:
-	Cset(int a) {
+	int *data;
+
+public:
+	Cset(int a)
+	{
 		n = a;
 		data = new int[n];
 	}
-	void setCset() {
-		for (int i = 0; i < n; i++) {
+	void setCset()
+	{
+		for (int i = 0; i < n; i++)
+		{
 			cin >> data[i];
 		}
 	}
-	void print() {
-		for (int i = 0; i < n; i++) {
+	void print()
+	{
+		for (int i = 0; i < n; i++)
+		{
 			cout << data[i] << " ";
 		}
 	}
-	friend void operator+(Cset&, Cset&);
-	friend Cset operator-(Cset&, Cset&);
-	friend void operator*(Cset&, Cset&);
+	friend void operator+(Cset &, Cset &);
+	friend Cset operator-(Cset &, Cset &);
+	friend void operator*(Cset &, Cset &);
 };
-void operator+(Cset& a, Cset& b) {
-	for (int i = 0; i < a.n; i++) {
+void operator+(Cset &a, Cset &b)
+{
+	for (int i = 0; i < a.n; i++)
+	{
 		cout << a.data[i] << " ";
 	}
-	for (int i = 0; i < b.n; i++) {
+	for (int i = 0; i < b.n; i++)
+	{
 		bool flag = 0;
-		for (int j = 0; j < a.n; j++) {
+		for (int j = 0; j < a.n; j++)
+		{
 			if (b.data[i] == a.data[j])
 				flag = 1;
 		}
@@ -37,30 +48,38 @@ void operator+(Cset& a, Cset& b) {
 			cout << b.data[i] << " ";
 	}
 }
-Cset operator-(Cset& a, Cset& b) {
+Cset operator-(Cset &a, Cset &b)
+{
 	int c = 0;
 	int t[20] = {};
-	for (int i = 0; i < a.n; i++) {
+	for (int i = 0; i < a.n; i++)
+	{
 		bool flag = 0;
-		for (int j = 0; j < b.n; j++) {
+		for (int j = 0; j < b.n; j++)
+		{
 			if (a.data[i] == b.data[j])
 				flag = 1;
 		}
-		if (!flag) {
+		if (!flag)
+		{
 			t[c] = a.data[i];
 			c++;
 		}
 	}
 	Cset ans(c);
-	for (int i = 0; i < c; i++) {
+	for (int i = 0; i < c; i++)
+	{
 		ans.data[i] = t[i];
 	}
 	return ans;
 }
-void operator*(Cset& a, Cset& b) {
-	for (int i = 0; i < a.n; i++) {
+void operator*(Cset &a, Cset &b)
+{
+	for (int i = 0; i < a.n; i++)
+	{
 		bool flag = 0;
-		for (int j = 0; j < b.n; j++) {
+		for (int j = 0; j < b.n; j++)
+		{
 			if (a.data[i] == b.data[j])
 				flag = 1;
 		}
@@ -69,10 +88,12 @@ void operator*(Cset& a, Cset& b) {
 	}
 }
 
-int main() {
+int main()
+{
 	int n;
 	cin >> n;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++)
+	{
 		int a;
 		cin >> a;
 		Cset c1(a);
@@ -83,13 +104,17 @@ int main() {
 		c2.setCset();
 		cout << "A:";
 		c1.print();
-		cout << endl << "B:";
+		cout << endl
+			 << "B:";
 		c2.print();
-		cout << endl << "A+B:";
+		cout << endl
+			 << "A+B:";
 		c1 + c2;
-		cout << endl << "A*B:";
-		c1 * c2;
-		cout << endl << "(A-B)+(B-A):";
+		cout << endl
+			 << "A*B:";
+		c1 *c2;
+		cout << endl
+			 << "(A-B)+(B-A):";
 		Cset x1 = c1 - c2, x2 = c2 - c1;
 		x1 + x2;
 		cout << endl;

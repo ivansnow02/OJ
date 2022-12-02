@@ -5,30 +5,36 @@
 */
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
+int main()
+{
 	int n, cnt = 0;
-	cin>>n;
+	cin >> n;
 	int men[12];
-	for(int i = 0;i<12;i++){
-		men[i]= i+1;
+	for (int i = 0; i < 12; i++)
+	{
+		men[i] = i + 1;
 	}
 	int i = 0;
 	int j = 0;
-	for (; cnt < 11; ){
-		
-		if(men[i] != 0) 
+	for (; cnt < 11;)
+	{
+		if (men[i] != 0)
 			j++;
-		if(j == n){
-				men[i] = 0;
-				cnt++;
-				j = 0;
-			}
+		if (j == n)
+		{
+			men[i] = 0;
+			cnt++;
+			j = 0;
+		}
 		i++;
-		if(i == 12) i = 0; 
+		if (i == 12)
+			i = 0;
 	}
-	for (int i = 0; i < 12; i++){
-		if(men[i] != 0){
-			cout<<men[i];
+	for (int i = 0; i < 12; i++)
+	{
+		if (men[i] != 0)
+		{
+			cout << men[i];
 		}
 	}
-} 
+}

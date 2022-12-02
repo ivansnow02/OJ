@@ -12,52 +12,67 @@
  */
 #include <iostream>
 using namespace std;
-class Shape {
-	protected:
-		double Area;
-	public:
-		virtual void printArea() = 0;
-		virtual ~Shape(){}
+class Shape
+{
+protected:
+	double Area;
+
+public:
+	virtual void printArea() = 0;
+	virtual ~Shape() {}
 };
-class Circle: public Shape {
-	private:
-		double r;
-	public:
-		Circle(double R) {
-			r = R;
-			Area = 3.1415927 * r * r;
-		}
-		void printArea() {
-			printf("area of circle=%.2lf\n", Area);
-		}
+class Circle : public Shape
+{
+private:
+	double r;
+
+public:
+	Circle(double R)
+	{
+		r = R;
+		Area = 3.1415927 * r * r;
+	}
+	void printArea()
+	{
+		printf("area of circle=%.2lf\n", Area);
+	}
 };
-class Rectangle: public Shape {
-	private:
-		double a, b;
-	public:
-		Rectangle(double A, double B) {
-			a = A;
-			b = B;
-			Area = A * B;
-		}
-		void printArea() {
-			printf("area of rectangle=%.2lf\n", Area);
-		}
+class Rectangle : public Shape
+{
+private:
+	double a, b;
+
+public:
+	Rectangle(double A, double B)
+	{
+		a = A;
+		b = B;
+		Area = A * B;
+	}
+	void printArea()
+	{
+		printf("area of rectangle=%.2lf\n", Area);
+	}
 };
-class Triangle: public Shape {
-	private:
-		double h, g;
-	public:
-		Triangle(double H, double G) {
-			h = H;
-			g = G;
-			Area = 0.5 * h * g;
-		}
-		void printArea() {
-			printf("area of triangle=%.2lf\n", Area);
-		}
+class Triangle : public Shape
+{
+private:
+	double h, g;
+
+public:
+	Triangle(double H, double G)
+	{
+		h = H;
+		g = G;
+		Area = 0.5 * h * g;
+	}
+	void printArea()
+	{
+		printf("area of triangle=%.2lf\n", Area);
+	}
 };
-int main() {
+int main()
+{
 	Shape *sp = NULL;
 	double r, a, b, h, g;
 	cin >> r >> a >> b >> h >> g;

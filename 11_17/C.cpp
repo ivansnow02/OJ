@@ -17,7 +17,7 @@
   （1）输入本次欲处理的学生人数 TOTAL（小于等于 150 的正整数）；
   （2）输入全班 TOTAL 个学生的有关信息，依次放入对象数组的各元素 stu[i]中（通过使用“stu[i].SetData(...);”形式的语句来实现）；
   （3）对全班TOTAL个学生，依次通过对象stu[i]来求出其总成绩、平均成绩等（其中要使用形如“stu[i].Sum()”以及“stu[i].Average()”式样的对成员函数进行调用的语句），
-       并同时求出全班学生总成绩最高者处于 stu 数组的下标位置idx_max，而后通过使用“stu[idx_max].Display();”来输出该学生有关的全部数据信息。
+	   并同时求出全班学生总成绩最高者处于 stu 数组的下标位置idx_max，而后通过使用“stu[idx_max].Display();”来输出该学生有关的全部数据信息。
   3．程序执行后的输入输出界面样式可设计为：
   TOTAL=3
   CStudent 1 : 100001 ma 78 86 90（注意空格）
@@ -42,66 +42,75 @@
   class_Sum_max=264
  */
 
-
 #include <bits/stdc++.h>
 using namespace std;
-class CStudent { //学生类 CStudent
-		unsigned long reg_num; //数据成员：注册号
-		char name[30]; //数据成员：姓名
-		float math, eng, comp; //数据成员：数学、英语、计算机成绩
-	public: //公有成员函数
-		float Sum() {
-			return math + eng + comp;
-		}
+class CStudent
+{						   //学生类 CStudent
+	unsigned long reg_num; //数据成员：注册号
+	char name[30];		   //数据成员：姓名
+	float math, eng, comp; //数据成员：数学、英语、计算机成绩
+public:					   //公有成员函数
+	float Sum()
+	{
+		return math + eng + comp;
+	}
 
+	//求三门课总成绩的函数 Sum
+	float Average()
+	{
+		return Sum() / 3;
+	}
 
-		//求三门课总成绩的函数 Sum
-		float Average() {
-			return Sum() / 3;
-		}
+	//求三门课平均成绩的函数 Average
+	void Display()
+	{
+		cout << reg_num << ' ' << name << ' ' << math << ' ' << eng << ' ' << comp << endl;
+	}
 
-		//求三门课平均成绩的函数 Average
-		void Display() {
-			cout << reg_num << ' ' << name << ' ' << math << ' ' << eng << ' ' << comp << endl;
-		}
-
-		//显示学生数据信息的函数 Display
-		void SetData (unsigned long r, char* n, float m, float e, float c) {
-			reg_num = r;
-			strcpy(name, n);
-			math = m;
-			eng = e;
-			comp = c;
-		}
-		//设置学生数据信息的函数 SetData
+	//显示学生数据信息的函数 Display
+	void SetData(unsigned long r, char *n, float m, float e, float c)
+	{
+		reg_num = r;
+		strcpy(name, n);
+		math = m;
+		eng = e;
+		comp = c;
+	}
+	//设置学生数据信息的函数 SetData
 } stu[10000];
-int main() {
+int main()
+{
 	int Total;
 	cin >> Total;
 	unsigned long r;
 	char n[30];
 	float m, e, c;
-	for (int i = 1; i <= Total; i++) {
+	for (int i = 1; i <= Total; i++)
+	{
 
 		cin >> r >> n >> m >> e >> c;
 		stu[i].SetData(r, n, m, e, c);
 	}
 	cout << "TOTAL=" << Total << endl;
-	for (int i = 1; i <= Total; i++) {
+	for (int i = 1; i <= Total; i++)
+	{
 		cout << "CStudent " << i << " : ";
 		stu[i].Display();
 	}
-	for (int i = 1; i <= Total; i++) {
+	for (int i = 1; i <= Total; i++)
+	{
 		cout << "CStudent" << i << ".Sum=" << stu[i].Sum() << ",CStudent" << i << ".average=" << stu[i].Average() << endl;
 	}
 	int max = 0, maxi = 0;
-	for (int i = 1; i <= Total; i++) {
-		if (max < stu[i].Sum()) {
+	for (int i = 1; i <= Total; i++)
+	{
+		if (max < stu[i].Sum())
+		{
 			max = stu[i].Sum();
 			maxi = i;
 		}
 	}
-	cout << "class_Sum_max=" << stu[maxi].Sum() << endl << "The infomation of the CStudent with class_Sum_max : ";
+	cout << "class_Sum_max=" << stu[maxi].Sum() << endl
+		 << "The infomation of the CStudent with class_Sum_max : ";
 	stu[maxi].Display();
-
 }
