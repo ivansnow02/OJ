@@ -7,30 +7,35 @@
  */
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
+int main()
+{
 	int k;
 	double ave = 0;
 	cin >> k;
 	vector<int> x(k);
-	for (int q = 0; q < k; q++) {
+	for (int q = 0; q < k; q++)
+	{
 		cin >> x[q];
 		ave += x[q];
 	}
 	ave /= k;
 	cout << ave << ' ';
 	int cnt = 0;
-	for (int n : x) {
-		if (n > ave) {
+	for (int n : x)
+	{
+		if (n > ave)
+		{
 			cnt++;
 		}
 	}
 	cout << cnt << endl;
-	for (int i = 0; i < k; i++) {
+	for (int i = 0; i < k; i++)
+	{
 		int flag = 1;
-		for (int j = 0; j < i; j++) 
-			if (x[j] == x[i]) 
+		for (int j = 0; j < i; j++)
+			if (x[j] == x[i])
 				flag = 0;
-		if (flag) 
+		if (flag)
 			cout << x[i] << " ";
 	}
 }

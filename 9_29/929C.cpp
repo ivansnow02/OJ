@@ -12,5 +12,5 @@ int main()
 	double b, d;
 	char e;
 	cin >> a >> b >> c >> d >> e;
-	cout<<a+b+c+d+e;
+	cout << a + b + c + d + e;
 }

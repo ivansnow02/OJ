@@ -5,16 +5,18 @@
  */
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
+int main()
+{
 	char s[50];
 	cin.getline(s, 50);
 	s[strlen(s) - 1] = ' ';
 	char *ans = 0;
 	ans = strtok(s, " ");
 	int cnt = 0;
-	while (ans != 0) {
+	while (ans != 0)
+	{
 		cout << ans << endl;
-		ans = strtok( 0, " " );
+		ans = strtok(0, " ");
 		cnt++;
 	}
 	cout << cnt;

@@ -7,30 +7,36 @@
  */
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
-	vector<int> a(10),b(10);
-	for(int i = 0; i < 10; i++){
-		cin>>a[i];
+int main()
+{
+	vector<int> a(10), b(10);
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> a[i];
 	}
-	for(int i = 0; i < 10; i++){
-		cin>>b[i];
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> b[i];
 	}
-	sort(a.begin(),a.end());
-	sort(b.begin(),b.end(),[=](int x,int y)->bool{return x > y;});
-	cout<<a[9]<<' '<<a[0]<<endl;
-	cout<<b[0]<<' '<<b[9]<<endl;
-	for(int x : a){
-		cout<<x<<' ';
+	sort(a.begin(), a.end());
+	sort(b.begin(), b.end(), [=](int x, int y) -> bool
+		 { return x > y; });
+	cout << a[9] << ' ' << a[0] << endl;
+	cout << b[0] << ' ' << b[9] << endl;
+	for (int x : a)
+	{
+		cout << x << ' ';
 	}
-	cout<<endl;
-	for(int x : b){
-		cout<<x<<' ';
+	cout << endl;
+	for (int x : b)
+	{
+		cout << x << ' ';
 	}
-	cout<<endl;
-	a.insert(a.end(),b.begin(),b.end());
-	sort(a.begin(),a.end());
-	for(int x : a){
-		cout<<x<<' ';
+	cout << endl;
+	a.insert(a.end(), b.begin(), b.end());
+	sort(a.begin(), a.end());
+	for (int x : a)
+	{
+		cout << x << ' ';
 	}
-	
 }

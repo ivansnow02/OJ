@@ -13,7 +13,8 @@
  */
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
+int main()
+{
     double A = 2.75, B = 12.5, C = 26.8, D = 512;
     int numa, numb, numc, numd;
     cin >> numa >> numb >> numc >> numd;
@@ -29,6 +30,6 @@ int main(){
          << "B:" << B << endl
          << "C:" << C << endl
          << "D:" << D << endl
-         <<"total:"<<A+B+C+D;
+         << "total:" << A + B + C + D;
     return 0;
 }

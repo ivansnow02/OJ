@@ -14,9 +14,10 @@ int main()
 {
     int num;
     cin >> num;
-    double max = 0, min = 10,score; 
+    double max = 0, min = 10, score;
     double sum = 0;
-    for (int i = 0; i < num; i++){
+    for (int i = 0; i < num; i++)
+    {
         cin >> score;
         max = max > score ? max : score;
         min = min < score ? min : score;
